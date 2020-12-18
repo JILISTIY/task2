@@ -82,7 +82,7 @@ void file_read(int semid, void* memry){
 		mybuf[0].sem_flg = 0;					
 		semop(semid, mybuf, 1);
 
-		if(wr = write(1, memry, PAGE_SIZE) < 0) {
+		if((wr = write(1, memry, PAGE_SIZE)) < 0) {
 			perror("writing from shmemory");
 			exit(-1);
 		}	
