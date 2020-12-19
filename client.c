@@ -95,7 +95,7 @@ void file_write(char* filename, int semid, void* memry){
 			exit(-1);
 		}
 		
-		if(!rd ||  semctl(semid, 4, GETVAL) != 2)
+		if(!rd ||  (semctl(semid, 4, GETVAL) != 2))
 			break;
 			
 		mybuf[0].sem_num = 3;
